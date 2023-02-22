@@ -10,9 +10,9 @@ Please follow the instructions below and fill in the information requested when 
 
 |               | Information   |
 |:-------------:|:-------------:|
-| Student Name  | name-here     |
-| Student ID    | id-here       |
-| Student Email | email-here    |
+| Student Name  | Yakoub Alkabsh|
+| Student ID    | 917108002     |
+| Student Email |yalkabsh2@sfsu.edu|
 
 
 
