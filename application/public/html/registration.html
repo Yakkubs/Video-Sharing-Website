@@ -2,12 +2,14 @@
 <html>
 
 <head>
-    <title>Assignment#2</title>
+    <title>Register</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 
 <body>
-    <h1>Csc 317</h1>
-    <p>Assignment#2 testing</p>
+    <h1>Register:</h1>
     <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="login.html">Login</a></li>
@@ -16,6 +18,25 @@
         <li><a href="viewpost.html">Watch</a></li>
         <li><a href="profile.html">Profile</a></li>
     </ul>
+    <main>
+        <form>
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" placeholder="USERNAME">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="EMAIL">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" placeholder="PASSWORD">
+            <label for="password confirm">Password Confirm</label>
+            <input type="password" name="password confirm" id="password confirm" placeholder="CONFIRM PASSWORD"><br>
+            <label for="age">Im at least 13 years of age!</label>
+            <input type="checkbox" name="age" id="age" value="True">
+            <label for="TOS">I agree to the TOS!</label>
+            <a href="https://preview.redd.it/jajtt23f9n811.jpg?auto=webp&s=513ecafaad01b19537c3515611c9d8d9d089074a"
+                target="_blank">TOS and Privacy Rules</a>
+            <input type="checkbox" name="TOS" id="TOS" value="True">
+            <input type="submit" value="Register">
+        </form>
+    </main>
     <footer>Yakoub Alkabsh &copy; 2023 - Csc 317 - yalkabsh@sfsu.edu</footer>
 </body>
 
