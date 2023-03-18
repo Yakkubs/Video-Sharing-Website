@@ -13,7 +13,7 @@
 
 
 body {
-  padding: 50px;
+  padding: 5px; 
   font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: var(--site-bg-color);
   color: #b64fc8;
@@ -30,7 +30,7 @@ header > h1{
   text-align: center;
 }
 
-ul{
+nav > ul{
   list-style-type: none;
   display: grid;
   grid-auto-flow:column;
@@ -55,9 +55,19 @@ form{
   box-shadow: -2px 2px 5px whitesmoke;
 }
 .button{
+  margin-top:1rem;
   color: var(--main-palate-color);
   border: 1px solid var(--main-palate-color);
   border-radius:1rem;
+}
+.button:hover{
+  background-color:#b64fc8;
+  color: whitesmoke;
+}
+.checkbox:hover{
+  background-color:#b64fc8;
+  color: whitesmoke;
+  transform: scale(1.5);
 }
 footer{
   font-size:30px;
