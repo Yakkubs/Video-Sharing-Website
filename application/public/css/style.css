@@ -77,3 +77,9 @@ footer{
   -webkit-text-stroke-color: black;
   text-align: center;
 }
+.valid-text{
+  outline:solid green;
+}
+.invalid-text{
+  outline:solid red;
+}
