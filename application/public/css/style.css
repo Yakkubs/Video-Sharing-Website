@@ -4,16 +4,14 @@
   --secondary--palate-color: #3c4042;
 }
 
-
 * ,
 *::after
 *::before{
   box-sizing: border-box;
 }
 
-
 body {
-  padding: 5px; 
+  padding: 5px;
   font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: var(--site-bg-color);
   color: #b64fc8;
@@ -32,8 +30,10 @@ header > h1{
 
 nav > ul{
   list-style-type: none;
+  padding: 0;
   display: grid;
   grid-auto-flow:column;
+  text-align: center;
 }
 a {
   text-decoration: none;
@@ -82,4 +82,10 @@ footer{
 }
 .invalid-text{
   outline:solid red;
+}
+.product-list{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  flex-direction: column;
+  gap: 10px;
 }
