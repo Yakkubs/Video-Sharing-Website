@@ -15,7 +15,6 @@ async function fetchWithString(){
             </div>
         </div>`);
         },"");
-        console.log("Count: ", count);
         imageCount.textContent = "Current Image Count: "+ count;
         document.getElementById('product-list').innerHTML = htmlString;
         let items = document.getElementsByClassName('product-card');
@@ -28,7 +27,6 @@ async function fetchWithString(){
                     current.remove();
                     clearInterval(timer);
                     count--;
-                    console.log("Count: ", count);
                     imageCount.textContent = "Current Image Count: "+ count;
                 },500);
             })
