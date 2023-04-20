@@ -3,13 +3,9 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'CSC 317 App', name:"Yakoub Alkabsh" });
+  res.render('index', { title: 'CSC 317 App', name:"Yakoub Alkabsh",js:["index.js"] });
 });
 
-router.get('/index', function(req,res){
-  res.render('index', {js:["index.js"]});
-
-});
 
 router.get('/login', function(req,res){
   res.render('login');
