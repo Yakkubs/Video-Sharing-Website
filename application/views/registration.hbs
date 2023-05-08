@@ -1,6 +1,9 @@
 <main>
     <div class="input-group">
-        <form id="registration-form">
+        <form id="registration-form"
+        action= "/users/registration"
+        method = "POST"
+        enctype="application/x-www-form-urlencoded">
             <label for="username">Username</label>
             <input type="text" class="input-text" name="username" id="username" placeholder="USERNAME">
             <p id="username-error-message" style="display: none; font-size:16px; color: red;"></p>
@@ -10,7 +13,7 @@
             <input type="password" class="input-text" name="password" id="password" placeholder="PASSWORD">
             <p id="password-error-message" style="display: none; font-size:16px; color: red;"></p>
             <label for="password confirm">Password Confirm</label>
-            <input type="password" class="input-text" name="password confirm" id="password confirm"
+            <input type="password" class="input-text" name="passwordConfirm" id="password confirm"
                 placeholder="CONFIRM PASSWORD">
             <p id="passwordConfirm-error-message" style="display: none; font-size:16px; color: red;"></p>
             <label for="age">Im at least 13 years of age!</label>

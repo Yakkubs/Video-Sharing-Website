@@ -2,24 +2,26 @@
     <h1>Csc 317</h1>
     <nav>
         <ul>
-            <li>
-                <a href="/">Home</a>
-            </li>
-            <li>
-                <a href="/login">Login</a>
-            </li>
-            <li>
-                <a href="/registration">Registration</a>
-            </li>
-            <li>
-                <a href="/postvideo">Post</a>
-            </li>
-            <li>
-                <a href="/viewpost">Watch</a>
-            </li>
-            <li>
-                <a href="/profile">Profile</a>
-            </li>
+            {{#if isLoggedIn}}
+                {{> userdropdown}}
+            {{else}}
+                <li>
+                    <a href="/login">Login</a>
+                </li>
+                <li>
+                    <a href="/registration">Registration</a>
+                </li>
+                
+            {{/if}}
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/postvideo">Post</a>
+                </li>
+                <li>
+                    <a href="/viewpost">Watch</a>
+                </li>
         </ul>
     </nav>
 </header>

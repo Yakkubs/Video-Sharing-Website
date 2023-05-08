@@ -1,6 +1,9 @@
 <main>
     <h2>Login Form</h2>
-    <form>
+    <form id = "login-form"
+        action= "/users/login"
+        method = "POST"
+        enctype="application/x-www-form-urlencoded">
         <label for="username">Username</label>
         <input type="text" class="input-text" name="username" id="username" placeholder="USERNAME">
         <label for="password">Password</label>

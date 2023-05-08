@@ -11,12 +11,14 @@ router.get('/login', function(req,res){
   res.render('login');
 });
 
-router.get('/profile', function(req,res){
-  res.render('profile');
-});
-
 router.get('/postvideo', function(req,res){
-  res.render('postvideo');
+  if(req.session.user){
+    res.render('postvideo');
+    next();
+  }else{
+    return res.redirect("/login");
+  }
+  
 });
 
 router.get('/registration', function(req,res){
