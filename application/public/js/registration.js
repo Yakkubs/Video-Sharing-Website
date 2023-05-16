@@ -70,4 +70,5 @@ function registrationValidation() {
         console.log(ev);
     });
 }
+
 window.onload = registrationValidation();

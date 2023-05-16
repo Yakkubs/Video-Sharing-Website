@@ -1,17 +1,20 @@
 <main>
-    <form>
+    <form id = "post-video"
+    action="/posts/create"
+    method="POST"
+    enctype="multipart/form-data">
         <label for="title">Title:</label>
-        <input type="text" class="input-text" id="title" name="title" placeholder="Title of video">
+        <input type="text" class="input-text" id="post-title" name="title" placeholder="Title of video">
         <br>
         <label for="description">Description:</label>
-        <input type="text" class="input-text" id="description" name="description" placeholder="Video Description">
+        <input type="text" class="input-text" id="post-description" name="description" placeholder="Video Description">
         <br>
         <label for="AUP">I agree to the Acceptable Use Policy</label>
         <a href="https://i.ytimg.com/vi/kPj_IeH6ZZE/maxresdefault.jpg" target="_blank">Acceptable Use Policy</a>
         <input type="checkbox" class="checkbox" name="TOS" id="TOS" value="True">
         <br>
         <label for="video">Select Video:</label>
-        <input type="file" class="button" id="video" name="video" accept="video/*">
+        <input type="file" class="button" id="post-video" name="video" accept="video/*">
         <input type="submit" class="button" value="Upload">
     </form>
 </main>
