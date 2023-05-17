@@ -20,8 +20,6 @@ router.get('/registration',function(req,res){
   res.render('registration',{js:["registration.js"]});
 });
 
-router.get('/viewpost/:id(\\d+)', function(req,res){
-  res.render('viewpost');
-});
+
 
 module.exports = router;

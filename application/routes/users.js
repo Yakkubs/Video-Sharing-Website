@@ -6,7 +6,7 @@ var { isLoggedIn, isMyProfile } = require("../middleware/auth");
 const { isUsernameUnique, usernameCheck, passwordCheck, emailCheck, tosCheck, ageCheck, isEmailUnique } = require('../middleware/validation');
 
 /* localhost:3000/users/registration */
-router.post('/registration', usernameCheck, passwordCheck, emailCheck, tosCheck, ageCheck, isUsernameUnique, isEmailUnique, async function (req, res, next) {
+router.post('/registration', usernameCheck, passwordCheck, emailCheck, ageCheck, tosCheck, isUsernameUnique, isEmailUnique, async function (req, res, next) {
   var { username, email, password } = req.body;
 
   try {

@@ -4,7 +4,7 @@ module.exports = {
         let startWithChar = /[a-zA-Z]/;
         var {username} = req.body;
         username = username.trim();
-        if(!username.length > 3){
+        if(!(username.length >= 3)){
             req.flash("error","username must be 3 or more characters");
         }
         if(!startWithChar.test(username.charAt(0))){
@@ -51,8 +51,8 @@ module.exports = {
         }
     },
     tosCheck: function(req,res,next){
-        var {tos} = req.body;
-        if(tos !== 'on'){
+        var {TOS} = req.body;
+        if(!(TOS === 'on')){
             req.flash("error","Must check the Tos Box");
         }
         if(req.session.flash.error){
@@ -63,7 +63,7 @@ module.exports = {
     },
     ageCheck: function(req,res,next){
         var {age} = req.body;
-        if(age !== 'on'){
+        if(!(age === 'on')){
             req.flash("error","Must be at least 13 years old");
         }
         if(req.session.flash.error){
