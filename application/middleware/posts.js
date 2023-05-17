@@ -1,5 +1,6 @@
 var pathToFFMPEG = require('ffmpeg-static');
 var exec = require('child_process').exec;
+var db = require('../conf/database');
 
 module.exports = {
     makeThumbnail: function (req, res, next) {
@@ -20,7 +21,14 @@ module.exports = {
         }
     },
     getPostsForUserBy: function(req,res,next){
-
+        db.query('SELECT * FROM posts WHERE userId = ?', [userId], function (err, rows) {
+            if (err) {
+                next(err);
+            } else {
+                res.locals.posts = rows;
+                next();
+            }
+        });
     },
     //middleware for viewpost
     getPostsById: function(req,res,next){

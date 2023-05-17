@@ -3,25 +3,34 @@
     <nav>
         <ul>
             {{#if isLoggedIn}}
-                {{> userdropdown}}
+            {{> userdropdown}}
             {{else}}
-                <li>
-                    <a href="/login">Login</a>
-                </li>
-                <li>
-                    <a href="/registration">Registration</a>
-                </li>
-                
+            <li>
+                <a href="/login">Login</a>
+            </li>
+            <li>
+                <a href="/registration">Registration</a>
+            </li>
+
             {{/if}}
-                <li>
-                    <a href="/">Home</a>
-                </li>
-                <li>
-                    <a href="/postvideo">Post</a>
-                </li>
-                <li>
-                    <a href="/viewpost">Watch</a>
-                </li>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/postvideo">Post</a>
+            </li>
+            <li>
+                <a href="/viewpost">Watch</a>
+            </li>
         </ul>
     </nav>
 </header>
+<div class="search-bar">
+    <form class="search-bar"
+    action="/posts/search"
+    method="GET"
+    enctype="application/x-www-form-urlencoded">
+        <input name="searchValue" id="search-text" type="text" class="search-text" placeholder="Search...">
+        <button type= "submit" class="search-button">Search</button>
+    </form>
+</div>

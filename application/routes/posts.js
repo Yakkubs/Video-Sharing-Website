@@ -45,11 +45,30 @@ router.post("/create", isLoggedIn, upload.single("video"), makeThumbnail, async 
 });
 
 router.get('/:id(\\d+)', function (req, res,) {
-    res.render('viewpost');
+    res.render("viewpost", {
+        title: `view Post ${req.params.id}`,
+    });
 });
 
-router.get("/search", function(req,res,next){
+router.get("/search", async function(req,res,next){
+    var {searchValue} = req.query;
+    try{
+        var [rows, _] = await db.execute(
+            `select id,title,thumbnail, concat_ws(' ', title, description) as haystack
+            from posts
+            having haystack like ?;`,
+            [`%${searchValue}%`]
+        );
 
+        if(rows && rows.length == 0){
+            
+        }else{
+            res.locals.posts = rows;
+            return res.render('index');
+        }
+    }catch(error){
+        next(error);
+    }
 });
 
 router.delete("/delete", function(req,res,next){
