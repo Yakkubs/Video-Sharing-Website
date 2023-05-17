@@ -89,3 +89,12 @@ footer{
   flex-direction: column;
   gap: 10px;
 }
+.alert.alert-danger{
+  text-align: center;
+  background-color: red;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 1rem;
+  opacity: 0.5;
+}
