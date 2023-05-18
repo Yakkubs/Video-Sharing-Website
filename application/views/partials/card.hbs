@@ -1,7 +1,10 @@
 <div class="product-card">
-    <img class="product-img" src="/{{thumbnail}}">
-    <div class="product-info">
-        <p class="product-title">{{title}}</p>
-        <a href="/users/viewpost/{{id}}">Post details</a>
-    </div>
+    <a href="/posts/{{id}}" class="product-link">
+        <img class="product-img" src="/{{thumbnail}}">
+        <div class="product-info">
+            <p class="product-title">{{title}}</p>
+            <a href="/posts/{{id}}">Post details</a>
+        </div>
+    </a>
 </div>
+

@@ -6,12 +6,10 @@
     <em>
         <strong class="profile-email">{{user.email}}</strong>
     </em>
-    <details>
-        <summary>Users Posts:</summary>
-        <ol></ol>
-        <ol></ol>
-        <ol></ol>
-        <ol></ol>
-        <ol></ol>
-    </details>
+    
+    <div id="userPosts" name="userPosts">
+        {{#each posts}}
+            {{> card this}}
+        {{/each}}
+    </div>
 </main>

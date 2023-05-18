@@ -1,27 +1,68 @@
 <main>
-    <h2>GENERIC TITLE NAME :D</h2>
-    <iframe width="400" height="300" src="https://www.youtube.com/embed/XxWcirHIwVo" title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen></iframe>
-    <details>
-        <summary>Video Detials</summary>
-        <strong>Creator: Yakku</strong>
-        <br>
-        <strong>Date Posted: 3/1/2023</strong>
-    </details>
-    <details>
-        <summary>Comments:</summary>
-        <ol>
-            <h3>@YakkuHater</h3>
-            <p>This video is horrible bruh please learn how to edit &#10071;</p>
-        </ol>
-        <ol>
-            <h3>@YakkuSupporter</h3>
-            <p>Ima have to agree with the haters, ur video blows💯</p>
-        </ol>
-        <ol></ol>
-        <ol></ol>
-        <ol></ol>
-    </details>
+    <h2>{{currentPost.title}}</h2>
+    <video class="video-container" controls>
+        <source src="/{{currentPost.video}}" type="video/mp4">
+    </video>
+    <strong>Creator: {{currentPost.username}}</strong>
+    <br>
+    <strong>Date Posted: {{formatDateString currentPost.creartedAt}}</strong>
+    <p>{{currentPost.description}}</p>
+    <div class="comment-section">
+        <div class="comment-box">
+            <textarea id="comment-text" class="comment-box-text"></textarea>
+            <button id="comment-button" class="comment-box-button" type="submit" data-postid="{{currentPost.id}}">
+                comment
+            </button>
+        </div>
+        <div id="comments" class="comments">
+            {{#each currentPost.comments}}
+            <div class="comment">
+                <strong class="comment-author">
+                    {{this.username}}
+                </strong>
+                <span class="comment-date">{{formatDateString this.createdAt}}</span>
+                <div class="comment-text"> {{this.text}}</div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <script>
+        document.getElementById("comment-button").addEventListener('click', function (ev) {
+            let commentText = document.getElementById("comment-text").value;
+
+            if (!commentText) return;
+            var postId = ev.currentTarget.dataset.postid;
+            fetch("/comments/create", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(
+                    {
+                        postId: postId,
+                        comment: commentText
+
+                    }
+                )
+            })
+                .then(response => {
+                return response.json()
+        })
+            .then(data => {
+                    console.log(data);
+                    var comments = document.getElementById('comments');
+                    let commentFragment = document.createElement('template');
+                    commentFragment.innerHTML = `<div class="comment">
+                    <strong class="comment-author">${data.username}</strong>
+                    <span class="comment-date">${new Date().toLocaleString("en-us",{
+                        dateStyle: "long",
+                        timeStyle: "medium"
+                    })}</span>
+                            <div class="comment-text">${data.commentText}</div>
+                        </div>`;
+                    comments.append(commentFragment.content.firstChild);
+                })
+        })
+
+    </script>
 </main>
