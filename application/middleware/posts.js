@@ -21,6 +21,8 @@ module.exports = {
         }
     },
     getPostsForUserBy: function(req,res,next){
+        var {id} = req.params;
+
         db.query('SELECT * FROM posts WHERE userId = ?', [userId], function (err, rows) {
             if (err) {
                 next(err);

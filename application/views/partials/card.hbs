@@ -1,12 +1,7 @@
 <div class="product-card">
-    <img class="product-img" src="{{thumbnail}}">
+    <img class="product-img" src="/{{thumbnail}}">
     <div class="product-info">
         <p class="product-title">{{title}}</p>
-        <details>
-            <summary style="font-size: 10px;">Post Details</summary>
-            <p>
-                {{description}}
-            </p>
-        </details>
+        <a href="/users/viewpost/{{id}}">Post details</a>
     </div>
 </div>
