@@ -38,7 +38,7 @@ router.post("/create", isLoggedIn, upload.single("video"), makeThumbnail, async 
                 return res.redirect(`/`);
             })
         } else {
-            next(new Error('Post count not be created'));
+            next(new Error('Post could not be created'));
         }
     } catch (error) {
         next(error);
