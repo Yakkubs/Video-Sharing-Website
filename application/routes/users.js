@@ -87,4 +87,15 @@ router.post("/logout", function (req, res, next) {
   })
 });
 
+router.delete("/delete", async function(req,res,next){
+    var {id} = req.query;
+    try{
+    var [insertResult, _] = await db.execute(
+        `Delete From posts where id = ?;`,
+        [id])
+    }catch(error){
+        next(error);
+    }
+});
+
 module.exports = router;

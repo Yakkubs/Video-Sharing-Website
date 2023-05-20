@@ -1,15 +1,20 @@
 <main>
-    <em>
-        <strong class ="profile-username">{{user.username}}</strong>
-    </em>
-    <br>
-    <em>
-        <strong class="profile-email">{{user.email}}</strong>
-    </em>
-    
+    <div class="profile-owner-details">
+        <em>
+            <strong class="profile-username">{{user.username}}</strong>
+        </em>
+        <br>
+        <em>
+            <strong class="profile-email">{{user.email}}</strong>
+        </em>
+    </div>
+
     <div id="userPosts" name="userPosts">
         {{#each posts}}
-            {{> card this}}
+            {{!-- <form action="/posts/delete" method="POST"> --}}
+                {{> card this}}
+                <button type="submit" class="delete-button">Delete</button>
+            {{!-- </form> --}}
         {{/each}}
     </div>
 </main>

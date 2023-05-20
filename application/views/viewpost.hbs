@@ -7,7 +7,7 @@
         <strong>Creator: {{currentPost.username}}</strong>
         <br />
         <strong>Date Posted:
-            {{formatDateString currentPost.creartedAt}}</strong>
+            {{formatDateString currentPost.createdAt}}</strong>
         <p>{{currentPost.description}}</p>
         <div class="comment-section">
             <div class="comment-box">
@@ -51,8 +51,9 @@
             class="comment-date">${new Date().toLocaleString("en-us",{
             dateStyle: "long", timeStyle: "medium" })}</span> <div
             class="comment-text">${data.commentText}</div> </div>`;
-            comments.append(commentFragment.content.firstChild); }) })
-
+            comments.append(commentFragment.content.firstChild);
+            document.getElementById("comment-text").value = ""; }) })
+            
         </script>
     </div>
 </main>

@@ -37,7 +37,7 @@ module.exports = {
         var {id} = req.params;
         try {
             var [rows, _] = await db.execute(
-                `select u.username, p.video, p.title, p.description, p.id, p.creartedAt
+                `select u.username, p.video, p.title, p.description, p.id, p.createdAt
                 from posts p
                 join users u
                 ON p.fk_userId = u.id
@@ -74,8 +74,16 @@ module.exports = {
         }
 
     },
-    getRecentPosts: function (req, res, next) {
-
+    getRecentPosts: async function(req, res, next) {
+        try {
+          var [rows, _] = await db.execute(
+            `select id, title, thumbnail from posts order by createdAt desc limit 10`
+          );
+      
+          res.locals.posts = rows;
+          next();
+        } catch (error) {
+          next(error);
+        }
     },
-
 }

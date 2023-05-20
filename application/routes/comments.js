@@ -19,7 +19,11 @@ router.post("/create", isLoggedIn, async function (req, res, next) {
                 commentText: comment,
             });
         } else {
-            
+            req.flash("error", `Comment couldnt be created`);
+            req.session.save(function(err){
+                if(err) next(err);
+                res.redirect('/');
+            })
         }
     } catch (error) {
         next(error);

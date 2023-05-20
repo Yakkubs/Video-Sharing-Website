@@ -68,7 +68,7 @@ async function makePostsTable(connection) {
       title VARCHAR(256) NOT NULL,
       description MEDIUMTEXT NOT NULL,
       video VARCHAR(4096) NOT NULL,
-      creartedAt DATETIME NOT NULL DEFAULT current_timestamp,
+      createdAt DATETIME NOT NULL DEFAULT current_timestamp,
       updatedAt DATETIME NOT NULL DEFAULT current_timestamp,
       thumbnail VARCHAR(4096) NOT NULL,
       fk_userID INT UNSIGNED NOT NULL,

@@ -35,7 +35,7 @@ router.post("/create", isLoggedIn, upload.single("video"), makeThumbnail, async 
             req.flash("success", "Your post was created!");
             return req.session.save(function (error) {
                 if (error) next(error);
-                return res.redirect(`/`);
+                return res.redirect(`/posts/${insertResult.insertId}`);
             })
         } else {
             next(new Error('Post could not be created'));
@@ -62,7 +62,11 @@ router.get("/search", async function(req,res,next){
         );
 
         if(rows && rows.length == 0){
-            
+            req.flash("error", `No post(s) found that fits that search desciption`);
+            req.session.save(function(err){
+                if(err) next(err);
+                res.redirect('/');
+            })
         }else{
             res.locals.posts = rows;
             return res.render('index');
@@ -72,8 +76,16 @@ router.get("/search", async function(req,res,next){
     }
 });
 
-router.delete("/delete", function(req,res,next){
-
+router.delete("/delete", async function(req,res,next){
+    var {id} = req.params;
+    try{
+    var [insertResult, _] = await db.execute(
+        `Delete From posts where id = ?;`,
+        [id]);
+        res.render('index');
+    }catch(error){
+        next(error);
+    }
 });
 
 module.exports = router;
