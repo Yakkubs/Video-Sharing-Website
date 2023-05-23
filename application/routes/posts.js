@@ -76,14 +76,22 @@ router.get("/search", async function(req,res,next){
     }
 });
 
-router.delete("/delete", async function(req,res,next){
-    var {id} = req.params;
-    try{
-    var [insertResult, _] = await db.execute(
-        `Delete From posts where id = ?;`,
-        [id]);
-        res.render('index');
-    }catch(error){
+router.post("/delete/:id(\\d+)", isLoggedIn, async function(req, res, next) {
+    var postId = req.params.id;
+    var { userId } = req.session.user;
+
+    try {
+        await db.execute(
+            `DELETE FROM comments WHERE fk_postID = ?;`,
+            [postId]
+        );
+        await db.execute(
+            `DELETE FROM posts WHERE id = ?;`,
+            [postId]
+        );
+        
+        res.redirect(`/users/profile/${userId}`);
+    } catch (error) {
         next(error);
     }
 });

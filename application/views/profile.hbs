@@ -11,10 +11,10 @@
 
     <div id="userPosts" name="userPosts">
         {{#each posts}}
-            {{!-- <form action="/posts/delete" method="POST"> --}}
-                {{> card this}}
-                <button type="submit" class="delete-button">Delete</button>
-            {{!-- </form> --}}
+        {{> card this}}
+        <form method="POST" action="/posts/delete/{{this.id}}">
+            <button type="submit">Delete</button>
+        </form>
         {{/each}}
     </div>
 </main>

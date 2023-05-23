@@ -5,7 +5,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', getRecentPosts ,function(req, res, next) {
-  res.render('index', { title: 'CSC 317 App', name:"Yakoub Alkabsh" });
+  res.render('index', { title: 'YakVision', name:"Yakoub Alkabsh" });
 });
 
 
