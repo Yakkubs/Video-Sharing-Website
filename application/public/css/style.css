@@ -291,6 +291,12 @@ footer{
   text-align: center;
 }
 
+.delete-form{
+  padding : 0px;
+  margin-top: -5px;
+  width: 100%;
+}
+
 .delete-button{
   color: var(--main-palate-color);
   border: 1px solid var(--main-palate-color);

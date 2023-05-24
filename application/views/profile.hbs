@@ -12,8 +12,8 @@
     <div id="userPosts" name="userPosts">
         {{#each posts}}
         {{> card this}}
-        <form method="POST" action="/posts/delete/{{this.id}}">
-            <button type="submit">Delete</button>
+        <form method="POST" class="delete-form" action="/posts/delete/{{this.id}}">
+            <button type="submit" class="delete-button">Delete</button>
         </form>
         {{/each}}
     </div>
